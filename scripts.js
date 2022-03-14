@@ -69,6 +69,15 @@ const SelfServiceMachine = {
     return {
       products
     }
+  },
+  methods: {
+    total: function () {
+      var total = 0
+      this.products?.forEach(
+        (item) => item.active && (total += item.price * item.quantity)
+      )
+      return total.toFixed(2)
+    }
   }
 }
 
